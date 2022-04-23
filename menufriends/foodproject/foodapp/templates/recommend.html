@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="description" content="Ogani Template">
+    <meta name="keywords" content="Ogani, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>메뉴친구</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/elegant-icons.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/nice-select.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/jquery-ui.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/slicknav.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
+</head>
+
+<body>
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Humberger Begin -->
+    <div class="humberger__menu__overlay"></div>
+    <div class="humberger__menu__wrapper">
+        <div class="humberger__menu__logo">
+            <a href="#"><img src="/static/img/logo0.png" alt=""></a>
+        </div>
+        <div class="humberger__menu__cart">
+            <!-- <ul>
+                <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
+                <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
+            </ul>
+            <div class="header__cart__price">item: <span>$150.00</span></div> -->
+        </div>
+        <div class="humberger__menu__widget">
+            <!-- <div class="header__top__right__language">
+                <img src="img/language.png" alt="">
+                <div>English</div>
+                <span class="arrow_carrot-down"></span>
+                <ul>
+                    <li><a href="#">Spanis</a></li>
+                    <li><a href="#">English</a></li>
+                </ul>
+            </div> -->
+            <div class="header__top__right__auth">
+                <a href="#"><i class="fa fa-user"></i> Login</a>
+            </div>
+        </div>
+        <nav class="humberger__menu__nav mobile-menu">
+            <ul>
+                <li class="active"><a href="./index.html">Home</a></li>
+                <li><a href="./shop-grid.html">Shop</a></li>
+                <li><a href="#">Pages</a>
+                    <ul class="header__menu__dropdown">
+                        <li><a href="./shop-details.html">Shop Details</a></li>
+                        <li><a href="./shoping-cart.html">Shoping Cart</a></li>
+                        <li><a href="./checkout.html">Check Out</a></li>
+                        <li><a href="./blog-details.html">Blog Details</a></li>
+                    </ul>
+                </li>
+                <li><a href="./checkout.html">회원가입</a></li>
+                <li><a href="./contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        <!-- <div id="mobile-menu-wrap"></div>
+        <div class="header__top__right__social">
+            <a href="#"><i class="fa fa-facebook"></i></a>
+            <a href="#"><i class="fa fa-twitter"></i></a>
+            <a href="#"><i class="fa fa-linkedin"></i></a>
+            <a href="#"><i class="fa fa-pinterest-p"></i></a>
+        </div> -->
+        <!-- <div class="humberger__menu__contact">
+            <ul>
+                <li><i class="fa fa-envelope"></i> hello@colorlib.com</li>
+                <li>Free Shipping for all Order of $99</li>
+            </ul>
+        </div> -->
+    </div>
+    <!-- Humberger End -->
+
+    <!-- Header Section Begin -->
+    <header class="header">
+        <div class="header__top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6">
+                        <div class="header__top__left">
+                            <!-- <ul>
+                                <li><i class="fa fa-envelope"></i> hello@colorlib.com</li>
+                                <li>Free Shipping for all Order of $99</li>
+                            </ul> -->
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                        <div class="header__top__right">
+                            {% if user.is_authenticated %}
+                            {{ user.username }}님 환영합니다
+                            {% else %}
+                            메뉴친구에 오신 것을 환영합니다
+                            {% endif %}
+                            <!-- <div class="header__top__right__social">
+                                <a href="#"><i class="fa fa-facebook"></i></a>
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                                <a href="#"><i class="fa fa-linkedin"></i></a>
+                                <a href="#"><i class="fa fa-pinterest-p"></i></a>
+                            </div> -->
+                            {% comment %} <div class="header__top__right__language">
+                                <img src="img/language.png" alt="">
+                                <div>English</div>
+                                <span class="arrow_carrot-down"></span>
+                                <ul>
+                                    <li><a href="#">Spanis</a></li>
+                                    <li><a href="#">English</a></li>
+                                </ul>
+                            </div> {% endcomment %}
+                            {% comment %} <div class="header__top__right__auth">
+                                <a href="#"><i class="fa fa-user"></i> Login</a>
+                            </div> {% endcomment %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="header__logo">
+                        <a href="{% url 'index' %}"><img src="/static/img/logo0.png" alt=""></a>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <nav class="header__menu">
+                        <ul>
+                            <li><a href="{% url 'index' %}">Home</a></li>
+                            {% comment %} <li><a href="./shop-grid.html">Shop</a></li>
+                            <li><a href="#">Pages</a>
+                                <ul class="header__menu__dropdown">
+                                    <li><a href="./shop-details.html">Shop Details</a></li>
+                                    <li><a href="./shoping-cart.html">Shoping Cart</a></li>
+                                    <li><a href="./checkout.html">회원가입</a></li>
+                                    <li><a href="./blog-details.html">Blog Details</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="./blog.html">Blog</a></li> {% endcomment %}
+                            {% if user.is_authenticated %}
+                            <li><a href="{% url 'recommend' Users.pk %}">추천메뉴</a></li>
+                            <li><a href="{% url 'logout' %}">로그아웃</a></li>
+                            {% else %}
+                            <li><a href="{% url 'signup' %}">회원가입</a></li>
+                            <li><a href="{% url 'login' %}">로그인</a></li>
+                            {% endif %}
+                        </ul>
+                    </nav>
+                </div>
+                <!-- <div class="col-lg-3">
+                    <div class="header__cart">
+                        <ul>
+                            <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
+                            <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
+                        </ul>
+                        <div class="header__cart__price">item: <span>$150.00</span></div>
+                    </div>
+                </div> -->
+            </div>
+            <div class="humberger__open">
+                <i class="fa fa-bars"></i>
+            </div>
+        </div>
+    </header>
+    <!-- Header Section End -->
+
+    <!-- Hero Section Begin -->
+    <!-- <section class="hero">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="hero__categories">
+                        <div class="hero__categories__all">
+                            <i class="fa fa-bars"></i>
+                            <span>All departments</span>
+                        </div>
+                        <ul>
+                            <li><a href="#">Fresh Meat</a></li>
+                            <li><a href="#">Vegetables</a></li>
+                            <li><a href="#">Fruit & Nut Gifts</a></li>
+                            <li><a href="#">Fresh Berries</a></li>
+                            <li><a href="#">Ocean Foods</a></li>
+                            <li><a href="#">Butter & Eggs</a></li>
+                            <li><a href="#">Fastfood</a></li>
+                            <li><a href="#">Fresh Onion</a></li>
+                            <li><a href="#">Papayaya & Crisps</a></li>
+                            <li><a href="#">Oatmeal</a></li>
+                            <li><a href="#">Fresh Bananas</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-9">
+                    <div class="hero__search">
+                        <div class="hero__search__form">
+                            <form action="#">
+                                <div class="hero__search__categories">
+                                    All Categories
+                                    <span class="arrow_carrot-down"></span>
+                                </div>
+                                <input type="text" placeholder="What do yo u need?">
+                                <button type="submit" class="site-btn">SEARCH</button>
+                            </form>
+                        </div>
+                        <div class="hero__search__phone">
+                            <div class="hero__search__phone__icon">
+                                <i class="fa fa-phone"></i>
+                            </div>
+                            <div class="hero__search__phone__text">
+                                <h5>+65 11.188.888</h5>
+                                <span>support 24/7 time</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero__item set-bg" data-setbg="img/hero/banner.jpg">
+                        <div class="hero__text">
+                            <span>FRUIT FRESH</span>
+                            <h2>Vegetable <br />100% Organic</h2>
+                            <p>Free Pickup and Delivery Available</p>
+                            <a href="#" class="primary-btn">SHOP NOW</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+    <!-- Hero Section End -->
+
+    <!-- Breadcrumb Section Begin -->
+    {% if user.is_authenticated %}
+    <section class="breadcrumb-section set-bg" data-setbg="/static/img/breadcrumb.jpg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="breadcrumb__text">
+                        <h2>추천메뉴</h2>
+                        <!-- <div class="breadcrumb__option">
+                            <a href="./index.html">Home</a>
+                            <span>회원가입</span>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    {% else %}
+    <section class="breadcrumb-section set-bg" data-setbg="/static/img/breadcrumb.jpg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="breadcrumb__text">
+                        <h2>로그인</h2>
+                        <!-- <div class="breadcrumb__option">
+                            <a href="./index.html">Home</a>
+                            <span>회원가입</span>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    {% endif %}
+    <!-- Breadcrumb Section End -->
+
+    <!-- Checkout Section Begin -->
+    <section class="checkout spad">
+        <div class="container">
+            <!-- <div class="row">
+                <div class="col-lg-12">
+                    <h6><span class="icon_tag_alt"></span> Have a coupon? <a href="#">Click here</a> to enter your code
+                    </h6>
+                </div>
+            </div> -->
+
+
+
+
+            <div class="checkout__form">
+                {% if user.is_authenticated %}
+
+                <section class="related-blog spad">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="section-title related-blog-title">
+                                    <h2>{{ user.username }}님의 취향을 반영해<br>함께 만드는 일주일 식단</h2>
+                                </div>
+                            </div>               
+                {% comment %} <h4>로그인 성공!
+                {{ user.username }}님 환영합니다.</h4> {% endcomment %}
+                {% comment %} <a href="{% url 'logout' %}">로그아웃</a> {% endcomment %}
+
+                {% comment %} <h4>일주일 추천 식단</h4> {% endcomment %}
+                <style type="text/css">
+                .tg  {border-collapse:collapse;border-color:#bbb;border-spacing:0;}
+                .tg td{background-color:#E0FFEB;border-color:#bbb;border-style:solid;border-width:1px;color:#594F4F;
+                font-family:Arial, sans-serif;font-size:14px;overflow:hidden;padding:10px 5px;word-break:normal;}
+                .tg th{background-color:#9DE0AD;border-color:#bbb;border-style:solid;border-width:1px;color:#493F3F;
+                font-family:Arial, sans-serif;font-size:14px;font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+                .tg .tg-0pky{border-color:inherit;text-align:center;vertical-align:top}
+                .tg .tg-0lax{text-align:center;vertical-align:top}
+                </style>
+                <table class="tg">
+                <colgroup>
+                <col style="width: 250px">
+                <col style="width: 250px">
+                <col style="width: 250px">
+                <col style="width: 250px">
+                <col style="width: 250px">
+                <col style="width: 250px">
+                <col style="width: 250px">
+                </colgroup>
+                <thead>
+                <tr>
+                    <th class="tg-0pky">일</th>
+                    <th class="tg-0pky">월</th>
+                    <th class="tg-0pky">화</th>
+                    <th class="tg-0pky">수</th>
+                    <th class="tg-0pky">목</th>
+                    <th class="tg-0lax">금</th>
+                    <th class="tg-0lax">토</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td class="tg-0pky">{{day_sun}}</td>
+                    <td class="tg-0pky">{{day_mon}}</td>
+                    <td class="tg-0pky">{{day_tue}}</td>
+                    <td class="tg-0pky">{{day_wed}}</td>
+                    <td class="tg-0pky">{{day_thu}}</td>
+                    <td class="tg-0lax">{{day_fri}}</td>
+                    <td class="tg-0lax">{{day_sat}}</td></br>
+                </tr>
+            </br>
+            {% comment %} pk:{{Users.pk}} {% endcomment %}
+
+        {% comment %} 곡물:{{Users.곡물전분류}} {% endcomment %}
+
+                {% comment %} 육류:{{Users.육류}} {% endcomment %}
+
+
+
+
+                
+            <!-- pk:{{Users.pk}} -->
+
+        <!-- 곡물:{{Users.곡물전분류}} -->
+                           
+                <!-- 육류:{{Users.육류}} -->
+                    <input type="hidden" name="Users_pk" value="{{Users.pk}}">
+            {% comment %} {% if n == -1 %} {% endcomment %}
+            {% comment %} </br> {% endcomment %}
+                   
+            {% comment %} <a href="{% url 'recipe_1' menu_index1 Users.pk %}" >{{title1}}  {{menu_index1}}</a>
+            <input type="hidden" name="menu_index1" value="{{menu_index1}}">
+        </br>
+            <a href="{% url 'recipe_1' menu_index2 Users.pk %}" >{{title2}}  {{menu_index2}}</a>
+            <input type="hidden" name="menu_index2" value="{{menu_index2}}">
+        </br>
+            <a href="{% url 'recipe_1' menu_index3 Users.pk %}" >{{title3}}  {{menu_index3}}</a>
+            <input type="hidden" name="menu_index3" value="{{menu_index3}}">
+        </br>
+            <a href="{% url 'recipe_1' menu_index4 Users.pk %}" >{{title4}}  {{menu_index4}}</a>
+            <input type="hidden" name="menu_index4" value="{{menu_index4}}">
+        </br>
+            <a href="{% url 'recipe_1' menu_index5 Users.pk %}" >{{title5}}  {{menu_index5}}</a>
+            <input type="hidden" name="menu_index5" value="{{menu_index5}}">
+        </br>
+            <a href="{% url 'recipe_1' menu_index6 Users.pk %}" >{{title6}}  {{menu_index6}}</a>
+            <input type="hidden" name="menu_index6" value="{{menu_index6}}">
+        </br> {% endcomment %}
+
+
+            <!-- Related Blog Section Begin -->
+
+                                <div class="blog__item">
+                                    <div class="blog__item__text">
+                                        {% if n != -1 %}
+                                        <h5>일주일 식단을 모두 선택하셨습니다</h5>
+                                        <a href="{% url 'pay' Users.pk %}" class="blog__btn">결제 하러 가기 ></a>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                <!-- Related Blog Section End -->
+
+                <!--
+                유저네임{{ user.username }}
+                <h1>기타:{{Users.기타}}</h1>
+                <h1>육류:{{Users.육류}}</h1>
+                <h1>견과류:{{Users.견과류}}</h1>
+                <h1>곡물전분류:{{Users.곡물전분류}}</h1>
+                <h1>김치류:{{Users.김치류}}</h1>
+                <h1>난류:{{Users.난류}}</h1>
+                <h1>면류:{{Users.면류}}</h1>
+                <h1>버섯류:{{Users.버섯류}}</h1>
+                <h1>유제품:{{Users.유제품}}</h1>
+                <h1>조리가공품류:{{Users.조리가공품류}}</h1>
+                <h1>조미료:{{Users.조미료}}</h1>
+                <h1>채소류:{{Users.채소류}}</h1>
+                <h1>해산물:{{Users.해산물}}</h1>
+                -->
+                </tbody>
+                </table>
+                <br>
+                
+                </section>                
+<!-- Related Blog Section Begin -->
+                <section class="related-blog spad">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="section-title related-blog-title">
+                                    <h2>당신에게 추천합니다<br>원하는 메뉴를 클릭하세요</h2>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-4 col-md-4 col-sm-6">
+                                <div class="blog__item">
+                                    <div class="blog__item__pic">
+                                        <img src="/static/img/m.png" alt="메뉴추천">
+                                    </div>
+                                    <div class="blog__item__text">
+                                        {% comment %} <ul>
+                                            <li><i class="fa fa-calendar-o"></i> May 4,2019</li>
+                                            <li><i class="fa fa-comment-o"></i> 5</li>
+                                        </ul> {% endcomment %}
+                                        <h5><a href="{% url 'recipe_1' menu_index1 Users.pk %}" >{{title1}}  </a>
+                                        <input type="hidden" name="menu_index1" value="{{menu_index1}}"></h5>
+                                        <p>{{menu_index1}} </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-6">
+                                <div class="blog__item">
+                                    <div class="blog__item__pic">
+                                        <img src="/static/img/m.png" alt="메뉴추천">
+                                    </div>
+                                    <div class="blog__item__text">
+                                        {% comment %} <ul>
+                                            <li><i class="fa fa-calendar-o"></i> May 4,2019</li>
+                                            <li><i class="fa fa-comment-o"></i> 5</li>
+                                        </ul> {% endcomment %}
+                                        <h5><a href="{% url 'recipe_1' menu_index2 Users.pk %}" >{{title2}} </a>
+                                            <input type="hidden" name="menu_index2" value="{{menu_index2}}"></h5>
+                                        <p>{{menu_index2}} </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-6">
+                                <div class="blog__item">
+                                    <div class="blog__item__pic">
+                                        <img src="/static/img/m.png" alt="메뉴추천">
+                                    </div>
+                                    <div class="blog__item__text">
+                                        {% comment %} <ul>
+                                            <li><i class="fa fa-calendar-o"></i> May 4,2019</li>
+                                            <li><i class="fa fa-comment-o"></i> 5</li>
+                                        </ul> {% endcomment %}
+                                        <h5><a href="{% url 'recipe_1' menu_index3 Users.pk %}" >{{title3}}  </a>
+                                            <input type="hidden" name="menu_index3" value="{{menu_index3}}"></h5>
+                                        <p>{{menu_index3}} </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-4 col-md-4 col-sm-6">
+                                <div class="blog__item">
+                                    <div class="blog__item__pic">
+                                        <img src="/static/img/m.png" alt="메뉴추천">
+                                    </div>
+                                    <div class="blog__item__text">
+                                        {% comment %} <ul>
+                                            <li><i class="fa fa-calendar-o"></i> May 4,2019</li>
+                                            <li><i class="fa fa-comment-o"></i> 5</li>
+                                        </ul> {% endcomment %}
+                                        <h5><a href="{% url 'recipe_1' menu_index4 Users.pk %}" >{{title4}}  </a>
+                                        <input type="hidden" name="menu_index4" value="{{menu_index4}}"></h5>
+                                        <p>{{menu_index4}} </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-6">
+                                <div class="blog__item">
+                                    <div class="blog__item__pic">
+                                        <img src="/static/img/m.png" alt="메뉴추천">
+                                    </div>
+                                    <div class="blog__item__text">
+                                        {% comment %} <ul>
+                                            <li><i class="fa fa-calendar-o"></i> May 4,2019</li>
+                                            <li><i class="fa fa-comment-o"></i> 5</li>
+                                        </ul> {% endcomment %}
+                                        <h5><a href="{% url 'recipe_1' menu_index5 Users.pk %}" >{{title5}} </a>
+                                            <input type="hidden" name="menu_index5" value="{{menu_index5}}"></h5>
+                                        <p>{{menu_index5}} </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-6">
+                                <div class="blog__item">
+                                    <div class="blog__item__pic">
+                                        <img src="/static/img/m.png" alt="메뉴추천">
+                                    </div>
+                                    <div class="blog__item__text">
+                                        {% comment %} <ul>
+                                            <li><i class="fa fa-calendar-o"></i> May 4,2019</li>
+                                            <li><i class="fa fa-comment-o"></i> 5</li>
+                                        </ul> {% endcomment %}
+                                        <h5><a href="{% url 'recipe_1' menu_index6 Users.pk %}" >{{title6}}  </a>
+                                            <input type="hidden" name="menu_index6" value="{{menu_index6}}"></h5>
+                                        <p>{{menu_index6}} </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </section>
+                <!-- Related Blog Section End -->
+
+
+
+
+
+            {% else %}
+                <h4>로그인</h4>
+                <h5>
+                    {% if error %}
+                        <div class="alert alert-danger" role="alert">
+                            {{ error }}
+                        <div>
+                    {% endif %}
+                </h5>
+                
+                <form method="POST" action="{% url 'login' %}">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-lg-8 col-md-6">
+                            <div class="row">
+                                <div class="col-lg-6">
+
+                                </div>
+                                <!-- <div class="col-lg-6">
+                                    <div class="checkout__input">
+                                        <p>Last Name<span>*</span></p>
+                                        <input type="text">
+                                    </div>
+                                </div> -->
+                            </div>
+                            <!-- <div class="checkout__input">
+                                <p>Country<span>*</span></p>
+                                <input type="text">
+                            </div> -->
+                            <!-- <div class="checkout__input">
+                                <p>주소<span>*</span></p>
+                                <input type="text" placeholder="" class="checkout__input__add"> -->
+                                <!-- <input type="text" placeholder="Apartment, suite, unite ect (optinal)"> -->
+                            <!-- </div> -->
+                            <!-- <div class="checkout__input">
+                                <p>Town/City<span>*</span></p>
+                                <input type="text">
+                            </div>
+                            <div class="checkout__input">
+                                <p>Country/State<span>*</span></p>
+                                <input type="text">
+                            </div>
+                            <div class="checkout__input">
+                                <p>Postcode / ZIP<span>*</span></p>
+                                <input type="text">
+                            </div> -->
+                            <!-- <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="checkout__input">
+                                        <p>Phone<span>*</span></p>
+                                        <input type="text">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="checkout__input">
+                                        <p>Email<span>*</span></p>
+                                        <input type="text">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="checkout__input__checkbox">
+                                <label for="acc">
+                                    Create an account?
+                                    <input type="checkbox" id="acc">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                            <p>Create an account by entering the information below. If you are a returning customer
+                                please login at the top of the page</p> -->
+                            <div class="checkout__input">
+                                <p>아이디<span>*</span></p>
+                                <input type="text" name="username" id="username">
+                            </div>
+                            <div class="checkout__input">
+                                <p>비밀번호<span>*</span></p>
+                                <input type="password" name="password" id="password_1" class="pw" placeholder="비밀번호">
+                            </div>
+
+                            <!-- <div class="checkout__input">
+                                <p>Order notes<span>*</span></p>
+                                <input type="text"
+                                    placeholder="Notes about your order, e.g. special notes for delivery.">
+                            </div> -->
+                            <button type="submit" class="site-btn">로그인</button>
+                        </div>
+                        <!-- <div class="col-lg-4 col-md-6">
+                            <div class="checkout__order">
+                                <h4>Your Order</h4>
+                                <div class="checkout__order__products">Products <span>Total</span></div>
+                                <ul>
+                                    <li>Vegetable’s Package <span>$75.99</span></li>
+                                    <li>Fresh Vegetable <span>$151.99</span></li>
+                                    <li>Organic Bananas <span>$53.99</span></li>
+                                </ul>
+                                <div class="checkout__order__subtotal">Subtotal <span>$750.99</span></div>
+                                <div class="checkout__order__total">Total <span>$750.99</span></div>
+                                <div class="checkout__input__checkbox">
+                                    <label for="acc-or">
+                                        Create an account?
+                                        <input type="checkbox" id="acc-or">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </div>
+                                <p>Lorem ipsum dolor sit amet, consectetur adip elit, sed do eiusmod tempor incididunt
+                                    ut labore et dolore magna aliqua.</p>
+                                <div class="checkout__input__checkbox">
+                                    <label for="payment">
+                                        Check Payment
+                                        <input type="checkbox" id="payment">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </div>
+                                <div class="checkout__input__checkbox">
+                                    <label for="paypal">
+                                        Paypal
+                                        <input type="checkbox" id="paypal">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </div>
+                                <button type="submit" class="site-btn">PLACE ORDER</button>
+                            </div>
+                        </div> -->
+                    </div>
+                </form>
+                
+            </div>
+            {% endif %}
+        </div>
+    </section>
+    <!-- Checkout Section End -->
+
+    <!-- Footer Section Begin -->
+    <footer class="footer spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="footer__about">
+                        <div class="footer__about__logo">
+                            <a href="{% url 'index' %}"><img src="/static/img/logo0.png" alt=""></a>
+                        </div>
+                        <!-- <ul>
+                            <li>Address: 60-49 Road 11378 New York</li>
+                            <li>Phone: +65 11.188.888</li>
+                            <li>Email: hello@colorlib.com</li>
+                        </ul> -->
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6 offset-lg-1">
+                    <div class="footer__widget">
+                        <!-- <h6>Useful Links</h6>
+                        <ul>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">About Our Shop</a></li>
+                            <li><a href="#">Secure Shopping</a></li>
+                            <li><a href="#">Delivery infomation</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Our Sitemap</a></li>
+                        </ul>
+                        <ul>
+                            <li><a href="#">Who We Are</a></li>
+                            <li><a href="#">Our Services</a></li>
+                            <li><a href="#">Projects</a></li>
+                            <li><a href="#">Contact</a></li>
+                            <li><a href="#">Innovation</a></li>
+                            <li><a href="#">Testimonials</a></li>
+                        </ul> -->
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-12">
+                    <div class="footer__widget">
+                        <!-- <h6>Join Our Newsletter Now</h6>
+                        <p>Get E-mail updates about our latest shop and special offers.</p>
+                        <form action="#">
+                            <input type="text" placeholder="Enter your mail">
+                            <button type="submit" class="site-btn">Subscribe</button>
+                        </form> -->
+                        <div class="footer__widget__social">
+                            <!-- <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-instagram"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-pinterest"></i></a> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="footer__copyright">
+                        <div class="footer__copyright__text"><p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p></div>
+                        <!-- <div class="footer__copyright__payment"><img src="img/payment-item.png" alt=""></div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer Section End -->
+
+    <!-- Js Plugins -->
+    <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/jquery.nice-select.min.js' %}"></script>
+    <script src="{% static 'js/jquery-ui.min.js' %}"></script>
+    <script src="{% static 'js/jquery.slicknav.js' %}"></script>
+    <script src="{% static 'js/mixitup.min.js' %}"></script>
+    <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+
+ 
+
+</body>
+
+</html>
+
